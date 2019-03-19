@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +17,7 @@ WebDriver driver;
 
     @Given("^user is on Home Page$")
         public void user_Is_On_Homepage(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Anurag\\Documents\\cucumber\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Bhavna PC\\Documents\\IdeaProjects\\Cucumbertest10\\CucumberTest_10\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -42,6 +43,12 @@ WebDriver driver;
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
+
+    @Then("^Close the browser$")
+        public void close_the_browser(){
+            driver.quit();
+        }
+
 /*    @When("^Click on carshop logo$")
         public void click_On_Carshop_Logo() {
         driver.findElement(By.xpath("(//img[@alt='CarShop Logo'])[1]")).click();
